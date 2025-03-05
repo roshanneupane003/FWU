@@ -1,0 +1,187 @@
+body {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  background-color: #a796a7;
+}
+header {
+  text-align: left;
+  background-color: #a796a7;
+}
+
+header section {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  color: white;
+}
+header div {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+header form {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+header a {
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+header a:hover {
+  color: #fcfdfd;
+}
+header img {
+  max-width: 150px;
+  margin-bottom: 20px;
+}
+
+a {
+  display: block;
+  margin-top: 10px;
+  color: #2980b9;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #9efd05;
+}
+
+/* Button Styles */
+button {
+  cursor: pointer;
+}
+
+/* Main Content Styles */
+main {
+  padding: 20px;
+}
+h1 {
+  text-align: center !important;
+  margin-top: 200px !important;
+  font-size: 2.5em !important;
+  font-weight: bold !important;
+  color: #ffffff !important;
+  line-height: 1.2 !important;
+}
+
+.explore {
+  text-align: center;
+  margin-top: 125px;
+}
+
+footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  flex-wrap: wrap;
+  background-color: #7e8d9e;
+  padding: 20px;
+  color: white;
+  text-align: center;
+  position: relative;
+  margin-top: 600px;
+  margin-bottom: 20px;
+  bottom: 0;
+  width: 100%;
+}
+
+footer div {
+  background-color: #a796a7;
+  padding: 10px;
+  border-radius: 5px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+footer h4 {
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+footer ul li {
+  margin-bottom: 10px;
+}
+
+footer ul li a,
+footer a {
+  text-decoration: none;
+  color: yellow;
+}
+
+footer ul li a:hover,
+footer a:hover {
+  text-decoration: underline;
+}
+
+footer p {
+  margin: 5px 0;
+  color: white;
+}
+
+#below {
+  padding: 12px;
+  text-align: center;
+  background-color: #7e8d9e;
+  color: white;
+  margin: -20px;
+}
+
+img {
+  margin: 20px 20px;
+  height: 100px;
+  width: 300px;
+  object-fit: cover;
+  transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
+  animation: fadeIn 1s ease-in-out;
+}
+img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  filter: brightness(1.2) saturate(1.2);
+}
+
+/* Add this CSS code to your existing style section */
+
+#sample {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+#sample a,
+#sample select {
+  flex: 0 1 10%; /* Adjust this percentage to change the box size */
+  margin: -6px;
+  padding-left: 0px;
+  padding-right: 25px;
+  text-align: center;
+  border: none;
+  font-size: 14px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#sample a:hover,
+#sample select:hover,
+#sample select:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
