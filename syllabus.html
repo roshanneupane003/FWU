@@ -21,6 +21,75 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
       }
+
+      .table-container {
+        overflow-x: auto;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #7e8d9e;
+        border-radius: 10px;
+        overflow: hidden;
+      }
+
+      thead {
+        background: linear-gradient(135deg, #0078d4, #005bb5);
+        color: white;
+      }
+
+      thead th {
+        text-align: left;
+        padding: 15px;
+        font-size: 1.1rem;
+        text-transform: uppercase;
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #eee;
+        transition: background 0.3s ease;
+      }
+
+      tbody tr:nth-child(even) {
+        background: #7e8d9e;
+      }
+
+      tbody tr:hover {
+        background: #7e8d9e;
+      }
+
+      td {
+        padding: 15px;
+        font-size: 1rem;
+      }
+
+      footer {
+        margin-top: 50px;
+      }
+
+      /* Attractive Download Box */
+      a.download-box {
+        display: inline-block;
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: white;
+        background: linear-gradient(to right, #4caf50, #2e7d32);
+        border-radius: 30px;
+        text-align: center;
+        text-decoration: none;
+        transition: transform 0.3s ease, background 0.3s ease;
+        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+      }
+
+      a.download-box:hover {
+        background: linear-gradient(to right, #66bb6a, #388e3c);
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
+      }
     </style>
     <script>
       function navigate(value) {
@@ -68,11 +137,7 @@
     <section class="content">
       <main>
         <div id="sample">
-          <img
-            class="img"
-            src="https://facultyengineering.fwu.edu.np/assets/uploads/logo/1675650509-school-front-logo.png"
-            alt="FWU Logo"
-          />
+          <img class="img" src="images/logo.png" alt="FWU Logo" />
 
           <a href="index.html">Home</a>
           <select
@@ -146,11 +211,126 @@
             <option value="" disabled selected hidden>People</option>
             <option value="authorities.html">Authorities</option>
             <option value="teaching-staff.html">Teaching Staff</option>
-            <option value="staff.html">Staff</option>
+            <option value="staff.html">Non Teaching Staff</option>
           </select>
 
           <a href="gallery.html">Gallery</a>
           <a href="contacts.html">Contact Us</a>
+        </div>
+
+        <h1>Faculty of Engineering - Syllabus</h1>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>#SL</th>
+                <th>Title</th>
+                <th>Programs</th>
+                <th>Download</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>BE Computer Course Structure</td>
+                <td>Bachelor of Computer Engineering</td>
+                <td>
+                  <a
+                    href="images/computersyllabus.png"
+                    download="Computer_Course_Structure.png"
+                    class="download-box"
+                  >
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>BE Civil Course Structure</td>
+                <td>Bachelor of Civil Engineering</td>
+                <td>
+                  <a
+                    href="images/civilsyllabus.png"
+                    download="Civil_Course_Structure.png"
+                    class="download-box"
+                  >
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>BE Civil (I - VIII) Semester Syllabus</td>
+                <td>Bachelor of Civil Engineering</td>
+                <td>
+                  <a
+                    href="images/civilsemestersyllabus.png"
+                    download="Civil_Semester_Syllabus.png"
+                    class="download-box"
+                  >
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>BE Civil Elective Courses</td>
+                <td>Bachelor of Civil Engineering</td>
+                <td>
+                  <a
+                    href="images/civilelectivecourses.png"
+                    download="Civil_Elective_Courses.png"
+                    class="download-box"
+                  >
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>B. Arch First Semester Syllabus</td>
+                <td>Bachelor of Architecture</td>
+                <td>
+                  <a
+                    href="images/archfirstsemester.png"
+                    download="Arch_First_Semester.png"
+                    class="download-box"
+                  >
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>BE Civil First Semester Syllabus</td>
+                <td>Bachelor of Civil Engineering</td>
+                <td>
+                  <a
+                    href="images/civilfirstsemester.png"
+                    download="Civil_First_Semester.png"
+                    class="download-box"
+                  >
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>BE Computer First Semester Syllabus</td>
+                <td>Bachelor of Computer Engineering</td>
+                <td>
+                  <a
+                    href="images/computerfirstsemester.png"
+                    download="Computer_First_Semester.png"
+                    class="download-box"
+                  >
+                    <i class="fas fa-download"></i> Download
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </main>
     </section>

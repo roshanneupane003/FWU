@@ -15,67 +15,47 @@
     />
     <style>
       body {
+        color: white;
         background-image: url("images/background.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
       }
-      table {
+      :root {
+        --gap: 15px;
+        --column-count: 3;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(var(--column-count), 1fr);
+        gap: var(--gap);
+        padding: 20px;
+      }
+
+      .gallery img {
         width: 100%;
-        border-collapse: collapse;
-        background: white;
+        height: auto;
         border-radius: 10px;
-        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
       }
 
-      thead {
-        background: linear-gradient(135deg, #0078d4, #005bb5);
+      .gallery img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
       }
 
-      thead th {
-        text-align: left;
-        padding: 15px;
-        font-size: 1.1rem;
-        text-transform: uppercase;
+      @media (max-width: 1200px) {
+        :root {
+          --column-count: 2;
+        }
       }
 
-      tbody tr {
-        border-bottom: 1px solid #eee;
-        transition: background 0.3s ease;
-      }
-
-      tbody tr:nth-child(even) {
-        background: #f9f9f9;
-      }
-
-      tbody tr:hover {
-        background: #e6f0fa;
-      }
-
-      td {
-        padding: 15px;
-        font-size: 1rem;
-      }
-
-      /* Website "Visit" Button Styling */
-      a.btn {
-        display: inline-block;
-        padding: 8px 12px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        background: linear-gradient(135deg, #4caf50, #2e7d32);
-        text-decoration: none;
-        border-radius: 8px;
-        text-align: center;
-        transition: background 0.3s ease, transform 0.3s ease,
-          box-shadow 0.3s ease;
-        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
-      }
-
-      a.btn:hover {
-        background: linear-gradient(135deg, #66bb6a, #388e3c);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
+      @media (max-width: 768px) {
+        :root {
+          --column-count: 1;
+        }
       }
     </style>
     <script>
@@ -149,7 +129,7 @@
           </select>
 
           <select
-            id="academic-options"
+            d="iacademic-options"
             class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
             onchange="navigate(this.value)"
             style="
@@ -204,71 +184,24 @@
           <a href="gallery.html">Gallery</a>
           <a href="contacts.html">Contact Us</a>
         </div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>#SL</th>
-                <th>Campus</th>
-                <th>Website</th>
-                <th>Programs</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Central Campus</td>
-                <td>
-                  <a href="https://www.fwu.edu.np/" target="_blank" class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Computer Engineering</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Kailali Campus</td>
-                <td>
-                  <a
-                    href="https://kailalicampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Civil Engineering</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Dhangadhi Campus</td>
-                <td>
-                  <a
-                    href="https://dhangadhicampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Architecture</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Mahendranagar Campus</td>
-                <td>
-                  <a
-                    href="https://mahendranagarcampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>
-                  Bachelor of Civil Engineering, Bachelor of Computer
-                  Engineering
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="gallery">
+          <img src="gallery/gallery1.jpg" alt="Image 1" />
+          <img src="gallery/gallery2.jpg" alt="Image 2" />
+          <img src="gallery/gallery3.jpeg" alt="Image 3" />
+          <img src="gallery/gallery4.jpeg" alt="Image 4" />
+          <img src="gallery/gallery5.jpg" alt="Image 5" />
+          <img src="gallery/gallery6.jpg" alt="Image 6" />
+          <img src="gallery/gallery7.jpg" alt="Image 7" />
+          <img src="gallery/gallery8.jpg" alt="Image 8" />
+          <img src="gallery/gallery9.jpg" alt="Image 9" />
+          <img src="gallery/gallery10.jpg" alt="Image 10" />
+          <img src="gallery/gallery12.jpg" alt="Image 11" />
+          <img src="gallery/gallery13.jpg" alt="Image 12" />
+          <img src="gallery/gallery11.jpg" alt="Image 13" />
+          <img src="gallery/gallery14.jpg" alt="Image 14" />
+          <img src="gallery/gallery15.jpg" alt="Image 15" />
+          <img src="gallery/gallery16.jpg" alt="Image 16" />
+          <img src="gallery/gallery17.jpeg" alt="Image 17" />
         </div>
       </main>
     </section>

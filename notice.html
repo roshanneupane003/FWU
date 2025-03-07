@@ -13,75 +13,271 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+
     <style>
+      /* styles.css */
       body {
+        color: white;
         background-image: url("images/background.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        font-family: "Arial", sans-serif;
       }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        background: white;
+
+      :root {
+        --primary-color: #3498db;
+        --secondary-color: #e74c3c;
+        --background-color: rgba(255, 255, 255, 0.95);
+        --box-shadow-color: rgba(0, 0, 0, 0.1);
+        --hover-background-color: #7e8d9e;
+        --notice-border: 1px solid rgba(0, 0, 0, 0.1);
+        --title-color: #000000;
+        --time-color: #000000;
+      }
+
+      .notice-board {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px;
+        max-width: 1000px;
+        margin: 20px auto;
+        border: 1px solid rgba(255, 255, 255, 0.3);
         border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .notice-board:hover {
+        transform: scale(1.02);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.5);
+      }
+
+      .notice {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 80%;
+        padding: 10px;
+        border: var(--notice-border);
+        border-radius: 10px;
+        background-color: var(--background-color);
+        color: #333333;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+        position: relative;
+        box-shadow: 0 2px 5px var(--box-shadow-color);
         overflow: hidden;
       }
 
-      thead {
-        background: linear-gradient(135deg, #0078d4, #005bb5);
+      .notice:hover {
+        background-color: var(--hover-background-color);
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px var(--box-shadow-color);
       }
 
-      thead th {
-        text-align: left;
-        padding: 15px;
-        font-size: 1.1rem;
-        text-transform: uppercase;
+      .notice-title {
+        font-size: 1em;
+        font-weight: 400;
+        margin-bottom: 2px;
+        color: var(--title-color);
+        position: relative;
       }
 
-      tbody tr {
-        border-bottom: 1px solid #eee;
-        transition: background 0.3s ease;
+      .notice-title::before {
+        content: "";
+        width: 50px;
+        height: 4px;
+        background: var(--primary-color);
+        position: absolute;
+        bottom: -10px;
+        left: 0;
       }
 
-      tbody tr:nth-child(even) {
-        background: #f9f9f9;
+      .notice-time {
+        font-size: 0.9em;
+        color: var(--time-color);
+        margin-bottom: 10px;
       }
 
-      tbody tr:hover {
-        background: #e6f0fa;
+      .notice-time:hover::after {
+        content: "Published by Admin";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: var(--primary-color);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        font-size: 0.8em;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        white-space: nowrap;
       }
 
-      td {
-        padding: 15px;
-        font-size: 1rem;
+      .notice-actions {
+        display: flex;
+        gap: 10px;
+        margin-top: auto;
       }
 
-      /* Website "Visit" Button Styling */
-      a.btn {
-        display: inline-block;
-        padding: 8px 12px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        background: linear-gradient(135deg, #4caf50, #2e7d32);
-        text-decoration: none;
-        border-radius: 8px;
-        text-align: center;
-        transition: background 0.3s ease, transform 0.3s ease,
-          box-shadow 0.3s ease;
-        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+      .notice-actions button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        color: white;
+        background-color: var(--primary-color);
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
       }
 
-      a.btn:hover {
-        background: linear-gradient(135deg, #66bb6a, #388e3c);
+      .notice-actions button i {
+        margin-right: 5px;
+        transition: transform 0.3s;
+      }
+
+      .notice-actions button:hover i {
+        transform: rotate(360deg);
+      }
+
+      .notice-actions button:hover {
+        background-color: var(--secondary-color);
         transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
+        box-shadow: 0 4px 8px var(--box-shadow-color);
+      }
+
+      .notice-actions button:active {
+        transform: translateY(0);
+      }
+
+      .notice-actions button:nth-child(1) {
+        background-color: var(--primary-color);
+      }
+
+      .notice-actions button:nth-child(1):hover {
+        background-color: darken(var(--primary-color), 10%);
+      }
+
+      .notice-actions button:nth-child(2) {
+        background-color: var(--secondary-color);
+      }
+
+      .notice-actions button:nth-child(2):hover {
+        background-color: darken(var(--secondary-color), 10%);
+      }
+
+      @media (min-width: 768px) {
+        .notice-board {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 1024px) {
+        .notice-board {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
       }
     </style>
     <script>
       function navigate(value) {
         if (value) {
           window.location.href = value;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const notices = [
+          {
+            title: "New Admission Notice of MSc. CPM programme (2081/082)",
+            photo: "notice\notice1.jpg",
+          },
+          {
+            title: "MSc. CPM Fourth Semester Thesis Proposal Submission Notice",
+            photo: "notice\notice2.jpg",
+          },
+          {
+            title:
+              "Notice for End Semester Practical Exam BE ( Civil/ Computer) Second and Fifth Semester",
+            photo: "notice\notice3.jpg",
+          },
+          {
+            title: "MSc CPM Entrance Exam Syllabus",
+            photo: "notice\notice4.jpg",
+          },
+          {
+            title: "MSc CPM Admission Guidelines",
+            photo: "notice\notice5.pdf",
+          },
+          {
+            title: "Model Question for MSc CPM Entrance Examination",
+            photo: "notice\notice6.pdf",
+          },
+
+          // Add more notices as needed important
+        ];
+
+        const noticeBoard = document.getElementById("notice-board");
+        let noticeCount = 0;
+
+        notices.forEach((notice) => {
+          noticeCount++;
+          const noticeId = `notice${noticeCount}`;
+          const currentTime = new Date().toLocaleString();
+
+          const noticeDiv = document.createElement("div");
+          noticeDiv.className = "notice";
+          noticeDiv.id = noticeId;
+
+          const noticeTitle = document.createElement("h2");
+          noticeTitle.className = "notice-title";
+          noticeTitle.innerText = notice.title;
+
+          const noticeTime = document.createElement("p");
+          noticeTime.className = "notice-time";
+          noticeTime.innerText = `Published on: ${currentTime} by Admin`;
+
+          const noticeActions = document.createElement("div");
+          noticeActions.className = "notice-actions";
+
+          const downloadButton = document.createElement("button");
+          downloadButton.innerHTML = '<i class="fas fa-download"></i> Download';
+          downloadButton.onclick = () => downloadNotice(notice.photo);
+
+          const cancelButton = document.createElement("button");
+          cancelButton.innerHTML = '<i class="fas fa-times"></i> Cancel';
+          cancelButton.onclick = () => hideNotice(noticeId);
+          noticeActions.appendChild(downloadButton);
+          noticeActions.appendChild(cancelButton);
+
+          noticeDiv.appendChild(noticeTitle);
+          noticeDiv.appendChild(noticeTime);
+          noticeDiv.appendChild(noticeActions);
+
+          noticeBoard.appendChild(noticeDiv);
+        });
+      });
+
+      function downloadNotice(photo) {
+        const link = document.createElement("a");
+        link.href = photo; // URL to the photo of the notice
+        link.download = photo.split("").pop(); // Extracts the file name
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+
+      function hideNotice(id) {
+        const notice = document.getElementById(id);
+        if (notice) {
+          notice.style.display = "none";
         }
       }
     </script>
@@ -149,7 +345,7 @@
           </select>
 
           <select
-            id="academic-options"
+            d="iacademic-options"
             class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
             onchange="navigate(this.value)"
             style="
@@ -204,72 +400,7 @@
           <a href="gallery.html">Gallery</a>
           <a href="contacts.html">Contact Us</a>
         </div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>#SL</th>
-                <th>Campus</th>
-                <th>Website</th>
-                <th>Programs</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Central Campus</td>
-                <td>
-                  <a href="https://www.fwu.edu.np/" target="_blank" class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Computer Engineering</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Kailali Campus</td>
-                <td>
-                  <a
-                    href="https://kailalicampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Civil Engineering</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Dhangadhi Campus</td>
-                <td>
-                  <a
-                    href="https://dhangadhicampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Architecture</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Mahendranagar Campus</td>
-                <td>
-                  <a
-                    href="https://mahendranagarcampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>
-                  Bachelor of Civil Engineering, Bachelor of Computer
-                  Engineering
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+        <div class="notice-board" id="notice-board"></div>
       </main>
     </section>
 
@@ -312,13 +443,6 @@
     <section id="below">
       <p>&copy; 2025 Far Western University All rights Reserved</p>
     </section>
-    <script>
-      function navigate(value) {
-        if (value) {
-          window.location.href = value;
-        }
-      }
-    </script>
     <script src="index.js"></script>
   </body>
 </html>

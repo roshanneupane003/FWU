@@ -15,67 +15,67 @@
     />
     <style>
       body {
+        color: white;
         background-image: url("images/background.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
       }
-      table {
-        width: 100%;
-        border-collapse: collapse;
-        background: white;
+      #staff-list {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .staff-member {
+        background-color: #7e8d9e;
+        border: 1px solid #ddd;
+        padding: 20px;
         border-radius: 10px;
-        overflow: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        width: calc(33.333% - 20px); /* Adjusts to fit three items in a row */
+        box-sizing: border-box;
+        transition: box-shadow 0.3s ease;
       }
 
-      thead {
-        background: linear-gradient(135deg, #0078d4, #005bb5);
+      .staff-member:hover {
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
       }
 
-      thead th {
-        text-align: left;
-        padding: 15px;
-        font-size: 1.1rem;
-        text-transform: uppercase;
+      .staff-member img {
+        border-radius: 5%;
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-right: 20px;
       }
 
-      tbody tr {
-        border-bottom: 1px solid #eee;
-        transition: background 0.3s ease;
+      .staff-member h2 {
+        margin: 0 0 10px 0;
+        font-size: 1.5em;
+        color: #333;
       }
 
-      tbody tr:nth-child(even) {
-        background: #f9f9f9;
+      .staff-member p {
+        margin: 5px 0;
+        color: white;
       }
 
-      tbody tr:hover {
-        background: #e6f0fa;
+      .staff-member .icon {
+        margin-right: 10px;
+        color: #007bff;
       }
 
-      td {
-        padding: 15px;
-        font-size: 1rem;
+      .staff-member .icon-phone {
+        color: #4caf50;
       }
 
-      /* Website "Visit" Button Styling */
-      a.btn {
-        display: inline-block;
-        padding: 8px 12px;
-        font-size: 0.9rem;
-        font-weight: bold;
-        background: linear-gradient(135deg, #4caf50, #2e7d32);
-        text-decoration: none;
-        border-radius: 8px;
-        text-align: center;
-        transition: background 0.3s ease, transform 0.3s ease,
-          box-shadow 0.3s ease;
-        box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
-      }
-
-      a.btn:hover {
-        background: linear-gradient(135deg, #66bb6a, #388e3c);
-        transform: translateY(-3px);
-        box-shadow: 0 8px 20px rgba(76, 175, 80, 0.6);
+      .staff-member .icon-email {
+        color: #ff5722;
       }
     </style>
     <script>
@@ -149,7 +149,7 @@
           </select>
 
           <select
-            id="academic-options"
+            d="iacademic-options"
             class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
             onchange="navigate(this.value)"
             style="
@@ -204,71 +204,90 @@
           <a href="gallery.html">Gallery</a>
           <a href="contacts.html">Contact Us</a>
         </div>
-        <div class="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>#SL</th>
-                <th>Campus</th>
-                <th>Website</th>
-                <th>Programs</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>1</td>
-                <td>Central Campus</td>
-                <td>
-                  <a href="https://www.fwu.edu.np/" target="_blank" class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Computer Engineering</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Kailali Campus</td>
-                <td>
-                  <a
-                    href="https://kailalicampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Civil Engineering</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Dhangadhi Campus</td>
-                <td>
-                  <a
-                    href="https://dhangadhicampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>Bachelor of Architecture</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Mahendranagar Campus</td>
-                <td>
-                  <a
-                    href="https://mahendranagarcampus.edu.np/"
-                    target="_blank"
-                    class="btn"
-                    >Visit</a
-                  >
-                </td>
-                <td>
-                  Bachelor of Civil Engineering, Bachelor of Computer
-                  Engineering
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div id="staff-list">
+          <div class="staff-member" id="jayram-panthi">
+            <img src="teachers/teacher1.jpeg" alt="Jay Ram Panthi" />
+            <div>
+              <h2>Jay Ram Panthi</h2>
+              <p><i class="fas fa-briefcase icon"></i> Assistant Professor</p>
+              <p><i class="fas fa-phone icon"></i> 9851242317</p>
+              <p>
+                <i class="fas fa-envelope icon"></i> jayram.panthi21@gmail.com
+              </p>
+            </div>
+          </div>
+
+          <div class="staff-member" id="sagar-hamal">
+            <img src="teachers/teacher2.png" alt="Sagar Hamal" />
+            <div>
+              <h2>Sagar Hamal</h2>
+              <p><i class="fas fa-briefcase icon"></i> Assistant Professor</p>
+              <p><i class="fas fa-phone icon"></i> 9849861751</p>
+              <p><i class="fas fa-envelope icon"></i> hamalsagar1@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="staff-member" id="jyoti-deupa">
+            <img src="https://via.placeholder.com/100" alt="Jyoti Deupa" />
+            <div>
+              <h2>Jyoti Deupa</h2>
+              <p><i class="fas fa-briefcase icon"></i> Assistant Professor</p>
+              <p><i class="fas fa-phone icon"></i> 9840889431</p>
+              <p><i class="fas fa-envelope icon"></i> jyotideupa44@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="staff-member" id="trilok-bist">
+            <img src="teachers/teacher3.jpeg" alt="Trilok Bist" />
+            <div>
+              <h2>Trilok Bist</h2>
+              <p><i class="fas fa-briefcase icon"></i> Assistant Professor</p>
+              <p><i class="fas fa-phone icon"></i> 9846449503</p>
+              <p><i class="fas fa-envelope icon"></i> trilokbist04@gmil.com</p>
+            </div>
+          </div>
+
+          <div class="staff-member" id="hari-prasad-joshi">
+            <img src="teachers/teacher4.jpg" alt="Hari Prasad Joshi" />
+            <div>
+              <h2>Hari Prasad Joshi</h2>
+              <p><i class="fas fa-briefcase icon"></i> Assistant Professor</p>
+              <p><i class="fas fa-phone icon"></i> 9851143510</p>
+              <p><i class="fas fa-envelope icon"></i> harijoshi20@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="staff-member" id="janardan-joshi">
+            <img src="teachers/teacher5.jpeg" alt="Janardan Joshi" />
+            <div>
+              <h2>Janardan Joshi</h2>
+              <p><i class="fas fa-briefcase icon"></i> Assistant Professor</p>
+              <p><i class="fas fa-phone icon"></i> 9848857491</p>
+              <p>
+                <i class="fas fa-envelope icon"></i> janardanjoshi16@fwu.edu.np
+              </p>
+            </div>
+          </div>
+
+          <div class="staff-member" id="toran-prasad-bhatt">
+            <img src="teachers/teacher6.jpeg" alt="Toran Prasad Bhatt" />
+            <div>
+              <h2>Toran Prasad Bhatt</h2>
+              <p><i class="fas fa-briefcase icon"></i> Assistant Professor</p>
+              <p><i class="fas fa-phone icon"></i> 9851085333</p>
+              <p><i class="fas fa-envelope icon"></i> toranpbhatt@gmail.com</p>
+            </div>
+          </div>
+
+          <div class="staff-member" id="harendra-raj-kalauni">
+            <img src="teachers/teacher7.jpeg" alt="Harendra Raj Kalauni" />
+            <div>
+              <h2>Harendra Raj Kalauni</h2>
+              <p><i class="fas fa-briefcase icon"></i> Head of Department</p>
+              <p><i class="fas fa-phone icon"></i> 9843684017</p>
+              <p><i class="fas fa-envelope icon"></i> kalaunihh@fwu.edu.np</p>
+            </div>
+          </div>
         </div>
       </main>
     </section>
@@ -318,6 +337,34 @@
           window.location.href = value;
         }
       }
+
+      function addStaffMember(id, name, position, phone, email) {
+        const staffList = document.getElementById("staff-list");
+        const newMember = document.createElement("div");
+        newMember.className = "staff-member";
+        newMember.id = id;
+        newMember.innerHTML = `
+          <h2>${name}</h2>
+          <p>${position}</p>
+          <p>Phone: ${phone}</p>
+          <p>Email: ${email}</p>
+        `;
+        staffList.appendChild(newMember);
+      }
+
+      // Function to remove a staff member by ID
+      function removeStaffMember(id) {
+        const member = document.getElementById(id);
+        if (member) {
+          member.remove();
+        } else {
+          console.log("Staff member not found");
+        }
+      }
+
+      // Example usage:
+      // addStaffMember('new-member-id', 'New Member Name', 'Assistant Professor', '1234567890', 'newmember@example.com');
+      // removeStaffMember('jayram-panthi');
     </script>
     <script src="index.js"></script>
   </body>
