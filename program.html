@@ -21,12 +21,95 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
       }
+      h1 {
+        background-color: #a796a7;
+      }
+      .hidden {
+        display: none;
+      }
+
+      .program-toggle {
+        cursor: pointer;
+        color: #333;
+      }
+
+      .program-toggle .icon {
+        margin-left: 5px;
+      }
+
+      .program-image-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(
+          0,
+          0,
+          0,
+          0.8
+        ); /* Black background with some transparency */
+        z-index: 1000; /* Ensure the image is shown in front */
+      }
+
+      .program-image-container img {
+        display: block;
+        max-width: 90%;
+        max-height: 90%;
+        margin: auto;
+      }
+
+      .close-icon {
+        cursor: pointer;
+        background-color: red;
+        color: rgb(250, 247, 247);
+        font-size: 1.5rem;
+        top: 30px;
+        right: 10px;
+        z-index: 1001;
+        padding: 15px;
+        border-radius: 50px;
+        margin-left: 50px;
+      }
     </style>
     <script>
       function navigate(value) {
         if (value) {
           window.location.href = value;
         }
+      }
+
+      function toggleImages(program) {
+        const elements = document.querySelectorAll(`#${program}`);
+        elements.forEach((element) => {
+          element.classList.toggle("hidden");
+        });
+
+        const icons = document.querySelectorAll(
+          `[onclick="toggleImages('${program}')"] .icon`
+        );
+        icons.forEach((icon) => {
+          icon.classList.toggle("fa-chevron-down");
+          icon.classList.toggle("fa-chevron-up");
+        });
+      }
+
+      function hideImages(program) {
+        const elements = document.querySelectorAll(`#${program}`);
+        elements.forEach((element) => {
+          element.classList.add("hidden");
+        });
+
+        const icons = document.querySelectorAll(
+          `[onclick="toggleImages('${program}')"] .icon`
+        );
+        icons.forEach((icon) => {
+          icon.classList.add("fa-chevron-down");
+          icon.classList.remove("fa-chevron-up");
+        });
       }
     </script>
   </head>
@@ -97,7 +180,7 @@
           </select>
 
           <select
-            d="iacademic-options"
+            id="academic-options"
             class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
             onchange="navigate(this.value)"
             style="
@@ -152,19 +235,59 @@
           <a href="gallery.html">Gallery</a>
           <a href="contacts.html">Contact Us</a>
         </div>
-        <h1
-          class="text-5xl font-bold text-gray-900 uppercase tracking-wider mt-12 mb-8 leading-tight drop-shadow-lg"
-        >
-          School of Engineering
-        </h1>
+        <div class="max-w-2xl mx-auto bg-gray-100 p-8 rounded-lg shadow-lg">
+          <h1>Our Programs</h1>
+          <h2 class="text-xl font-semibold text-gray-700 mt-4">
+            Bachelor Programs
+          </h2>
+          <ul class="list-disc list-inside pl-4 mt-2">
+            <li
+              class="text-gray-600 mb-2"
+              onclick="toggleImages('architecture')"
+            >
+              Bachelor of Architecture <i class="fas fa-chevron-down icon"></i>
+            </li>
+            <li class="text-gray-600 mb-2" onclick="toggleImages('computer')">
+              Bachelor of Computer Engineering
+              <i class="fas fa-chevron-down icon"></i>
+            </li>
+            <li class="text-gray-600 mb-2" onclick="toggleImages('civil')">
+              Bachelor of Civil Engineering
+              <i class="fas fa-chevron-down icon"></i>
+            </li>
+          </ul>
+          <h2 class="text-xl font-semibold text-gray-700 mt-4">
+            Masters Programs
+          </h2>
+          <ul class="list-disc list-inside pl-4 mt-2">
+            <li class="text-gray-600 mb-2">
+              M.Sc. Construction Project Management
+            </li>
+          </ul>
+        </div>
 
-        <div class="explore">
-          <a
-            href="explore.html"
-            class="bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-gradient-to-br hover:from-gray-900 hover:to-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200"
-          >
-            Explore FWU &#x25BC;
-          </a>
+        <div id="architecture" class="hidden relative">
+          <i
+            class="fas fa-times close-icon"
+            onclick="hideImages('architecture')"
+          ></i>
+          <img
+            src="path_to_architecture_image_1.jpg"
+            alt="Architecture Image 1"
+          />
+        </div>
+
+        <div id="computer" class="hidden relative">
+          <i
+            class="fas fa-times close-icon"
+            onclick="hideImages('computer')"
+          ></i>
+          <img src="images/computersyllabus.png" alt="Computer Image 1" />
+        </div>
+
+        <div id="civil" class="hidden relative">
+          <i class="fas fa-times close-icon" onclick="hideImages('civil')"></i>
+          <img src="images/civilsyllabus1.png" alt="Civil Image 1" />
         </div>
       </main>
     </section>
@@ -208,13 +331,6 @@
     <section id="below">
       <p>&copy; 2025 Far Western University All rights Reserved</p>
     </section>
-    <script>
-      function navigate(value) {
-        if (value) {
-          window.location.href = value;
-        }
-      }
-    </script>
     <script src="index.js"></script>
   </body>
 </html>

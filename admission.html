@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty of Engineering</title>
+    <link rel="stylesheet" href="../css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        
+        background-image: url("images/background.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+
+main div #form {
+  width:700px;
+  justify-content: center;
+  background-color: #a796a7;
+  display:flex ;
+  border-radius: 40px;
+  
+}
+
+
+ main div form {
+  display: flex;
+  flex-direction: column;
+  margin-left:35px;
+  width:90%;
+  
+  gap:20px;
+}
+
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="file"],
+select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus {
+  border-color: #003366;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 51, 102, 0.5);
+}
+
+input[type="file"] {
+  padding: 5px;
+  font-size: 14px;
+}
+
+select {
+  cursor: pointer;
+}
+
+
+ main div form button[type="submit"] {
+  background-color: #003366;
+  border: none;
+  margin:20px;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #ffcc00;
+  transform: scale(1.05);
+}
+
+
+h1 {
+  font-size: 1.2rem;
+  margin-top: 30px;
+  border-bottom: 3px solid #0e24f0;
+  padding-bottom: 5px;
+}
+
+
+
+a{
+  color:white;
+}
+#personal-details {
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+#personal-details h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#personal-details label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#personal-details input,
+#personal-details select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#personal-details input::placeholder {
+    color: #aaa;
+}
+
+#personal-details select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff;
+    cursor: pointer;
+}
+
+#personal-details input:focus,
+#personal-details select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+
+#guardian{
+  width: 100%;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+ #guardian h4 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+      #guardian label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+#guardian input,
+#guardian select {
+    width: 100%;
+    gap : 5px;
+    padding: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#guardian input::placeholder {
+    color: #aaa;
+}
+
+#guardian select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: #fff;
+    cursor: pointer;
+}
+
+#guardian input:focus,
+#guardian select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+    </style>
+  </head>
+  <body>
+    <header>
+      <section class="top">
+        <div>
+          any inquiries? <i class="fas fa-phone"></i> 099520296
+          <i class="fas fa-envelope"></i> dean.engineering@fwu.edu.np
+        </div>
+        <a
+          href="admission.html"
+          class="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-3 px-3 h-14  rounded-full shadow-lg hover:from-green-500 hover:to-blue-600 focus:outline-none focus:ring-4 focus:ring-green-400 focus:ring-opacity-50 transform transition-transform hover:scale-105"
+          >Admission</a
+        >
+
+        <a
+          href="login.html"
+          class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-purple-500 h-14 hover:to-red-500 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl w-40"
+        >
+          <i class="fas fa-sign-in-alt"></i> Login
+        </a>
+        <form id="form1" class="searchbox">
+          <input
+            type="text"
+            id="searchInput"
+            class="border border-gray-300 rounded-full py-2.5 px-5 bg-white bg-opacity-75 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-md transition-transform transform hover:scale-105 focus:scale-110"
+            placeholder="Search..."
+          />
+          <button
+            type="submit"
+            class="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 transform transition-transform hover:scale-105"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+      </section>
+    </header>
+<main>
+    <section class="content">
+      
+        <div id="sample">
+          <img
+            class="img"
+            src="https://facultyengineering.fwu.edu.np/assets/uploads/logo/1675650509-school-front-logo.png"
+            alt="FWU Logo"
+          />
+
+          <a href="index.html">Home</a>
+          <select
+            id="about-us-options"
+            class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
+            onchange="navigate(this.value)"
+            style="
+              background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\' viewBox=\'0 0 24 24\' width=\'24\' height=\'24\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E');
+              background-repeat: no-repeat;
+              background-position: right 0.75rem center;
+              background-size: 1.5rem;
+            "
+          >
+            <option value="" disabled selected hidden>About us</option>
+            <option value="mission.html">Our Mission</option>
+            <option value="vision.html">Our Vision</option>
+            <option value="dean-message.html">Message From Dean</option>
+            <option value="history.html">Our Development History</option>
+            <option value="strategies.html">
+              Our Strategies, Area, and Priorities
+            </option>
+          </select>
+
+          <select
+            id="academic-options"
+            class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
+            onchange="navigate(this.value)"
+            style="
+              background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\' viewBox=\'0 0 24 24\' width=\'24\' height=\'24\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E');
+              background-repeat: no-repeat;
+              background-position: right 0.75rem center;
+              background-size: 1.5rem;
+            "
+          >
+            <option value="" disabled selected hidden>Academics</option>
+            <option value="campus.html">Campus</option>
+            <option value="program.html">Program</option>
+            <option value="syllabus.html">Syllabus</option>
+            <option value="journal.html">Journal</option>
+          </select>
+
+          <select
+            id="announcement-options"
+            class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
+            onchange="navigate(this.value)"
+            style="
+              background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\' viewBox=\'0 0 24 24\' width=\'24\' height=\'24\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E');
+              background-repeat: no-repeat;
+              background-position: right 0.75rem center;
+              background-size: 1.5rem;
+            "
+          >
+            <option value="" disabled selected hidden>Announcement</option>
+            <option value="notice.html">Notice</option>
+            <option value="holidays.html">Holidays</option>
+            <option value="news.html">News</option>
+            <option value="events.html">Events</option>
+          </select>
+
+          <select
+            id="people-options"
+            class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
+            onchange="navigate(this.value)"
+            style="
+              background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\' viewBox=\'0 0 24 24\' width=\'24\' height=\'24\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E');
+              background-repeat: no-repeat;
+              background-position: right 0.75rem center;
+              background-size: 1.5rem;
+            "
+          >
+            <option value="" disabled selected hidden>People</option>
+            <option value="authorities.html">Authorities</option>
+            <option value="teaching-staff.html">Teaching Staff</option>
+            <option value="staff.html">Staff</option>
+          </select>
+
+          <a href="gallery.html">Gallery</a>
+          <a href="contacts.html">Contact Us</a>
+        
+
+        <div id="form">
+          <section>
+        <h1>Online Admission</h1>
+        <form id="admission-form" enctype="multipart/form-data">
+          <!-- Submission Code -->
+          <label for="submission-code">Submission Code *</label>
+          <input
+            type="text"
+            id="submission-code"
+            name="submission-code"
+            required
+            placeholder="Enter Code"
+          />
+
+          <!-- Programme Selection -->
+          <label for="program">Select Programmes:</label>
+          <select id="program" name="program">
+            <option value="msc-construction">
+              M.Sc. Construction Project Management
+            </option>
+          </select>
+<div id="personal-details">
+          <!-- Personal Details -->
+          <h4>Personal Details:</h4>
+          <label for="name">Name (In BLOCK LETTER) *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Name"
+          />
+
+          <label for="birth-date-bs">Birth Date (BS) *</label>
+          <input
+            type="text"
+            id="birth-date-bs"
+            name="birth-date-bs"
+            placeholder="BS Format"
+          />
+
+          <label for="birth-date-ad">Birth Date (AD) *</label>
+          <input
+            type="text"
+            id="birth-date-ad"
+            name="birth-date-ad"
+            placeholder="AD Format"
+          />
+
+          <label for="gender">Gender *</label>
+          <select id="gender" name="gender" required>
+            <option value="">--Select--</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+
+          <label for="national-id">National ID</label>
+          <input
+            type="text"
+            id="national-id"
+            name="national-id"
+            placeholder="National ID"
+          />
+</div>
+          <label for="district">District *</label>
+          <select id="district" name="district" required>
+            <option value="">--Select--</option>
+            <label for="district">District *</label>
+            <!-- Koshi Province -->
+            <option value="taplejung">Taplejung</option>
+            <option value="panchthar">Panchthar</option>
+            <option value="ilam">Ilam</option>
+            <option value="jhapa">Jhapa</option>
+            <option value="morang">Morang</option>
+            <option value="sunsari">Sunsari</option>
+            <option value="dhankuta">Dhankuta</option>
+            <option value="terhathum">Terhathum</option>
+            <option value="bhojpur">Bhojpur</option>
+            <option value="sankhuwasabha">Sankhuwasabha</option>
+            <option value="solukhumbu">Solukhumbu</option>
+            <option value="okhaldhunga">Okhaldhunga</option>
+            <option value="khotang">Khotang</option>
+            <option value="udayapur">Udayapur</option>
+            <!-- Madhesh Province -->
+            <option value="saptari">Saptari</option>
+            <option value="siraha">Siraha</option>
+            <option value="dhanusha">Dhanusha</option>
+            <option value="mahottari">Mahottari</option>
+            <option value="sarlahi">Sarlahi</option>
+            <option value="rautahat">Rautahat</option>
+            <option value="bara">Bara</option>
+            <option value="parsa">Parsa</option>
+            <!-- Bagmati Province -->
+            <option value="sindhuli">Sindhuli</option>
+            <option value="ramechhap">Ramechhap</option>
+            <option value="dolakha">Dolakha</option>
+            <option value="sindhupalchok">Sindhupalchok</option>
+            <option value="kavrepalanchok">Kavrepalanchok</option>
+            <option value="lalitpur">Lalitpur</option>
+            <option value="bhaktapur">Bhaktapur</option>
+            <option value="kathmandu">Kathmandu</option>
+            <option value="nuwakot">Nuwakot</option>
+            <option value="rasuwa">Rasuwa</option>
+            <option value="dhading">Dhading</option>
+            <!-- Gandaki Province -->
+            <option value="gorkha">Gorkha</option>
+            <option value="lamjung">Lamjung</option>
+            <option value="tanahun">Tanahun</option>
+            <option value="syangja">Syangja</option>
+            <option value="kaski">Kaski</option>
+            <option value="manang">Manang</option>
+            <option value="mustang">Mustang</option>
+            <option value="parbat">Parbat</option>
+            <option value="myagdi">Myagdi</option>
+            <option value="baglung">Baglung</option>
+            <!-- Lumbini Province -->
+            <option value="gulmi">Gulmi</option>
+            <option value="palpa">Palpa</option>
+            <option value="nawalparasi-east">Nawalparasi (East)</option>
+            <option value="nawalparasi-west">Nawalparasi (West)</option>
+            <option value="rupandehi">Rupandehi</option>
+            <option value="arghakhanchi">Arghakhanchi</option>
+            <option value="kapilvastu">Kapilvastu</option>
+            <option value="dang">Dang</option>
+            <option value="pyuthan">Pyuthan</option>
+            <option value="rolpa">Rolpa</option>
+            <option value="rukum-east">Rukum (East)</option>
+            <option value="rukum-west">Rukum (West)</option>
+            <!-- Karnali Province -->
+            <option value="surkhet">Surkhet</option>
+            <option value="dailekh">Dailekh</option>
+            <option value="jajarkot">Jajarkot</option>
+            <option value="dolpa">Dolpa</option>
+            <option value="jumla">Jumla</option>
+            <option value="kalikot">Kalikot</option>
+            <option value="mugu">Mugu</option>
+            <option value="humla">Humla</option>
+            <!-- Sudurpashchim Province -->
+            <option value="bajura">Bajura</option>
+            <option value="bajhang">Bajhang</option>
+            <option value="achham">Achham</option>
+            <option value="doti">Doti</option>
+            <option value="kailali">Kailali</option>
+            <option value="kanchanpur">Kanchanpur</option>
+            <option value="dadeldhura">Dadeldhura</option>
+            <option value="baitadi">Baitadi</option>
+            <option value="darchula">Darchula</option>
+          </select>
+
+          <label for="date-issue">Date of Issue</label>
+          <input
+            type="text"
+            id="date-issue"
+            name="date-issue"
+            placeholder="Date of Issue"
+          />
+
+          <label for="blood-group">Blood Group</label>
+          <select id="blood-group" name="blood-group">
+            <option value="">--Select--</option>
+            <option value="a+">A+</option>
+            <option value="a-">A-</option>
+            <option value="b+">B+</option>
+            <option value="b-">B-</option>
+            <option value="o+">O+</option>
+            <option value="o-">O-</option>
+            <option value="ab+">AB+</option>
+            <option value="ab-">AB-</option>
+          </select>
+
+          <label for="birth-place">Birth Place</label>
+          <input
+            type="text"
+            id="birth-place"
+            name="birth-place"
+            placeholder="Birth Place"
+          />
+
+          <label for="photo">Upload Latest Passport Size Photo</label>
+          <input
+            type="file"
+            id="photo"
+            name="photo"
+            accept=".jpg, .jpeg, .png, .gif"
+          />
+
+          <!-- Permanent Address -->
+          <h4>Permanent Address:</h4>
+          <label for="municipality">Municipality</label>
+          <input type="text" id="municipality" name="municipality" />
+
+          <label for="ward-no">Ward No.</label>
+          <input type="text" id="ward-no" name="ward-no" />
+
+          <label for="district">District</label>
+          <input type="text" id="address-district" name="address-district" />
+
+          <label for="province">Province</label>
+          <input type="text" id="province" name="province" />
+
+          <label for="country">Country</label>
+          <input type="text" id="country" name="country" />
+
+          <label for="postal-code">Postal Code</label>
+          <input type="text" id="postal-code" name="postal-code" />
+
+          <label for="phone">Phone (Land-Line)</label>
+          <input type="text" id="phone" name="phone" />
+
+          <label for="mobile">Mobile No. *</label>
+          <input
+            type="text"
+            id="mobile"
+            name="mobile"
+            required
+            placeholder="Mobile No."
+          />
+
+          <label for="email">Email *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="Email"
+          />
+<div id="guardian">
+          <!-- Guardian Information -->
+          <h4>Guardian Information:</h4>
+          <label for="guardian-is">Is there a Guardian? *</label>
+          <select id="guardian-is" name="guardian-is" required>
+            <option value="">--Select--</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+
+          <label for="guardian-phone">Phone *</label>
+          <input
+            type="text"
+            id="guardian-phone"
+            name="guardian-phone"
+            required
+          />
+
+          <label for="guardian-name">Name *</label>
+          <input type="text" id="guardian-name" name="guardian-name" required />
+
+          <label for="guardian-email">Email</label>
+          <input type="email" id="guardian-email" name="guardian-email" />
+
+          <label for="guardian-profession">Profession</label>
+          <input
+            type="text"
+            id="guardian-profession"
+            name="guardian-profession"
+          />
+</div>
+          <!-- Academic Qualification -->
+          <h4>Academic Qualification:</h4>
+          <p>SLC/SEE</p>
+          <label for="institution-1">Institution/Board/University</label>
+          <input type="text" id="institution-1" name="institution-1" />
+
+          <!-- Additional fields for qualifications -->
+
+          <button type="submit">Submit</button>
+        </form>
+        </section>
+
+        </div>
+
+
+      </main>
+    
+
+   <footer>
+      <div class="quick-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="https://moe.gov.np/">Ministry of Education</a></li>
+          <li>
+            <a href="https://www.ugcnepal.edu.np/"
+              >University Grants Commission</a
+            >
+          </li>
+        </ul>
+      </div>
+      <div class="contact-info">
+        <h4>Get in Touch</h4>
+        <p><i class="fas fa-phone"></i> Phone: 099520296</p>
+        <p>
+          <i class="fas fa-envelope"></i> Email:
+          <a href="mailto:dean.engineering@fwu.edu.np">dean.engineering@fwu.edu.np</a>
+        </p>
+        <p>Address: Bheemdatta Municipality-18, Mahendranagar, Kanchanpur</p>
+      </div>
+      <div class="info-officer">
+        <h4>Dean office</h4>
+        <p>Prof.Kishan Dutta Bhatta</p>
+        <p><i class="fas fa-phone"></i> Phone: 099520296</p>
+        <p>
+          <i class="fas fa-envelope"></i> Email:
+          <a href="mailto:dean.engineering@fwu.edu.np">dean.engineering@fwu.edu.np</a>
+        </p>
+      </div>
+    </footer>
+
+    <section id="below">
+      <p>&copy; 2025 Far Western University All rights Reserved</p>
+    </section>
+    <script src="index.js"></script>
+  </body>
+</html>
+
