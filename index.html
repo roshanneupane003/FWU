@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Faculty of Engineering</title>
+    <title>School of Engineering</title>
     <link rel="stylesheet" href="../css/index.css" />
     <link
       rel="stylesheet"
@@ -15,19 +15,191 @@
     />
     <style>
       body {
-        color: white;
+        color: rgb(255, 255, 255);
         background-image: url("images/background.jpg");
         background-size: cover;
         background-repeat: no-repeat;
         background-attachment: fixed;
       }
-    </style>
-    <script>
-      function navigate(value) {
-        if (value) {
-          window.location.href = value;
+
+      #searchResults {
+        display: none;
+        margin-left: 965px;
+        padding: 0px;
+        border: 5px solid #31f10a;
+        border-radius: 20px;
+        background-color: #fffafa;
+        width: 190px;
+        position: absolute;
+        top: 50px;
+        z-index: 9999;
+      }
+
+      .search-result {
+        padding: 14px;
+        margin-right: 10px;
+        border: 1px solid #fffcfc;
+        border-radius: 4px;
+        background-color: #7b8085;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 14px;
+      }
+
+      .search-result:hover {
+        color: white;
+        background-color: #3854ad;
+      }
+      .container1 {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 20px;
+      }
+      .icon-card {
+        text-align: center;
+
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+      }
+
+      .icon {
+        width: 40px;
+        height: 40px;
+      }
+      p {
+        font-size: 18px;
+        margin-top: 10px;
+        color: #fdfdfd;
+      }
+
+      .container2 {
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        border-radius: 30px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .text-content {
+        max-width: 500px;
+        margin-right: 20px;
+      }
+      .text-content p {
+        font-size: 16px;
+        color: #ffffff;
+      }
+      .text-content .highlight {
+        font-weight: bold;
+        color: #ffffff;
+      }
+
+      .slider {
+        position: relative;
+        max-width: 50%;
+        margin: auto;
+        overflow: hidden;
+      }
+      .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+      }
+      .slides img {
+        width: 50%;
+        height: 100%;
+      }
+      @keyframes slide {
+        0% {
+          transform: translateX(0%);
+        }
+        20% {
+          transform: translateX(-100%);
+        }
+        40% {
+          transform: translateX(-200%);
+        }
+        60% {
+          transform: translateX(-300%);
+        }
+        80% {
+          transform: translateX(-400%);
+        }
+        100% {
+          transform: translateX(0%);
         }
       }
+    </style>
+    <script>
+      function navigate(selectedValue) {
+        if (selectedValue) {
+          window.location.href = selectedValue;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        function searchSpecificElements(query) {
+          const elements = document.querySelectorAll("a, h1, h2, h3, p, span");
+          const resultsContainer = document.getElementById("searchResults");
+          resultsContainer.innerHTML = "";
+          let hasResults = false; // Initialize a flag to track if there are results
+
+          elements.forEach((element) => {
+            if (element.innerText.toLowerCase().includes(query.toLowerCase())) {
+              const result = document.createElement("div");
+              result.className = "search-result";
+              result.innerText = element.innerText.trim();
+              result.addEventListener("click", function () {
+                const url = element.getAttribute("href");
+                if (url) {
+                  window.location.href = url;
+                }
+              });
+              resultsContainer.appendChild(result);
+              hasResults = true; // Set the flag to true when there's a result
+            }
+          });
+
+          if (hasResults) {
+            resultsContainer.style.display = "block"; // Show the container if there are results
+          } else {
+            resultsContainer.style.display = "none"; // Hide the container if there are no results
+          }
+        }
+
+        const form = document.getElementById("form1");
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          const query = document.getElementById("searchInput").value;
+          searchSpecificElements(query);
+        });
+
+        const mainContent = document.querySelector("main");
+        const searchResults = document.createElement("div");
+        searchResults.id = "searchResults";
+        searchResults.style.marginTop = "20px";
+        searchResults.style.padding = "10px";
+        searchResults.style.border = "1px solid #ccc";
+        searchResults.style.borderRadius = "5px";
+        searchResults.style.backgroundColor = "#f9f9f9";
+        searchResults.style.display = "none"; // Initially hide the container
+        mainContent.appendChild(searchResults);
+
+        // Hide the search results container when clicking outside of it
+        document.addEventListener("click", function (event) {
+          const isClickInsideSearchResults = searchResults.contains(
+            event.target
+          );
+          const isClickOnLink = event.target.closest("a");
+
+          if (!isClickInsideSearchResults && !isClickOnLink) {
+            searchResults.style.display = "none";
+          }
+        });
+      });
     </script>
   </head>
   <body>
@@ -154,9 +326,78 @@
           School of Engineering
         </h1>
 
+        <div class="container1">
+          <div class="icon-card">
+            <img
+              src="images/achievementicon.jpg"
+              alt="Achievements Icon"
+              class="icon"
+            />
+            <p><strong>Achievements:</strong></p>
+          </div>
+
+          <div class="icon-card">
+            <img
+              src="images/Education_31-60_1243.jpg"
+              alt="Students Icon"
+              class="icon"
+            />
+            <p><strong>Students:</strong> 422</p>
+          </div>
+          <div class="icon-card">
+            <img
+              src="images/teachericon.png"
+              alt="Teachers Icon"
+              class="icon"
+            />
+            <p><strong>Teachers:</strong> 12</p>
+          </div>
+          <div class="icon-card">
+            <img
+              src="images/staff-icon-png-15.jpg"
+              alt="Staffs Icon"
+              class="icon"
+            />
+            <p><strong>Staffs:</strong>7</p>
+          </div>
+          <div class="icon-card">
+            <img src="images/user_icon_007.jpg" alt="Users Icon" class="icon" />
+            <p><strong>Users</strong></p>
+          </div>
+        </div>
+        <div class="container2">
+          <div class="text-content">
+            <p>
+              The
+              <span class="highlight">Faculty of Engineering (FOE)</span> offers
+              <span class="highlight">bachelor's degrees</span> in civil
+              engineering (BE Civil), computer engineering (BE Computer),
+              Architecture (B.Arch), and a
+              <span class="highlight">Master's degree</span> in Construction
+              Project Management at its School of Engineering, Mahendranagar,
+              Kanchanpur. The FOE aims to provide a
+              <span class="highlight">high-class teaching</span> learning
+              environment, promote
+              <span class="highlight">quality technical education</span>, and
+              produce
+              <span class="highlight">competitive technical manpower</span> for
+              national and international markets through its exp.....
+            </p>
+          </div>
+        </div>
+
+        <div class="slider">
+          <div class="slides">
+            <img src="gallery/gallery1.jpg" alt="Image 1" />
+            <img src="gallery/gallery2.jpg" alt="Image 2" />
+            <img src="gallery/gallery3.jpeg" alt="Image 3" />
+            <img src="gallery/gallery4.jpeg" alt="Image 4" />
+            <img src="gallery/gallery7.jpg" alt="Image 5" />
+          </div>
+        </div>
         <div class="explore">
           <a
-            href="explore.html"
+            href="gallery.html"
             class="bg-gradient-to-r from-gray-700 via-gray-900 to-black text-white font-semibold py-2 px-6 rounded-lg shadow-md hover:bg-gradient-to-br hover:from-gray-900 hover:to-black focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray focus:ring-offset-2 focus:ring-gray-500 transition-all duration-200"
           >
             Explore FWU &#x25BC;
@@ -210,6 +451,18 @@
           window.location.href = value;
         }
       }
+      const slides = document.querySelector(".slides");
+      let index = 0;
+
+      function slideImages() {
+        index++;
+        if (index > 4) {
+          index = 0;
+        }
+        slides.style.transform = "translateX(" + -index * 100 + "%)";
+      }
+
+      setInterval(slideImages, 3000);
     </script>
     <script src="index.js"></script>
   </body>

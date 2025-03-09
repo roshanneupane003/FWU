@@ -3,200 +3,243 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Faculty of Engineering</title>
-    <link rel="stylesheet" href="../css/index.css" />
+    <title>Forgot Password</title>
     <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
     <style>
       body {
-        color: white;
-        background-image: url("images/background.jpg");
+        background: url("https://source.unsplash.com/featured/?business,work")
+          no-repeat center center fixed;
         background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
+      }
+      .form-container {
+        backdrop-filter: blur(10px);
+        background: rgba(255, 255, 255, 0.8);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        border-radius: 1rem;
+        padding: 2rem;
+      }
+      .icon-padding {
+        padding-left: 2.5rem;
+      }
+      .hidden {
+        display: none;
       }
     </style>
-    <script>
-      function navigate(value) {
-        if (value) {
-          window.location.href = value;
-        }
-      }
-    </script>
   </head>
-  <body>
-    <header>
-      <section class="top">
-        <div>
-          any inquiries? <i class="fas fa-phone"></i> 099520296
-          <i class="fas fa-envelope"></i> dean.engineering@fwu.edu.np
+  <body class="flex items-center justify-center min-h-screen bg-gray-100">
+    <div class="form-container w-full max-w-md">
+      <h2 class="text-4xl font-bold mb-8 text-gray-800 text-center">
+        Forgot Password
+      </h2>
+      <form id="forgot-form" action="/forgot-password" method="POST">
+        <div class="mb-6">
+          <label
+            class="block text-gray-700 text-sm font-semibold mb-2"
+            for="email"
+            >Email</label
+          >
+          <div class="relative">
+            <input
+              class="w-full text-gray-700 leading-tight border border-gray-300 rounded-lg py-3 px-4 shadow appearance-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-outline transition duration-200 h-12 icon-padding"
+              id="email"
+              name="email"
+              type="email"
+              placeholder="Enter your email"
+              required
+            />
+            <i
+              class="fas fa-envelope absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+            ></i>
+            <i
+              class="fas fa-info-circle absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500 cursor-pointer"
+              id="info-icon-email"
+            ></i>
+          </div>
         </div>
-        <a
-          href="admission.html"
-          class="bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold py-3 px-3 rounded-full shadow-lg hover:from-green-500 hover:to-blue-600 focus:outline-none focus:ring-4 focus:ring-green-400 focus:ring-opacity-50 transform transition-transform hover:scale-105"
-          >Admission</a
-        >
-
+        <div class="mb-6 hidden" id="code-section">
+          <label
+            class="block text-gray-700 text-sm font-semibold mb-2"
+            for="code"
+            >Enter the Code</label
+          >
+          <div class="relative">
+            <input
+              class="w-full text-gray-700 leading-tight border border-gray-300 rounded-lg py-3 px-4 shadow appearance-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-outline transition duration-200 h-12 icon-padding"
+              id="code"
+              name="code"
+              type="text"
+              placeholder="Enter the code sent to your email"
+              required
+            />
+            <i
+              class="fas fa-key absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+            ></i>
+          </div>
+        </div>
+        <div class="mb-6 hidden" id="new-password-section">
+          <label
+            class="block text-gray-700 text-sm font-semibold mb-2"
+            for="new-password"
+            >New Password</label
+          >
+          <div class="relative">
+            <input
+              class="w-full text-gray-700 leading-tight border border-gray-300 rounded-lg py-3 px-4 shadow appearance-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-outline transition duration-200 h-12 icon-padding"
+              id="new-password"
+              name="newPassword"
+              type="password"
+              placeholder="Enter your new password"
+              required
+            />
+            <i
+              class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+            ></i>
+          </div>
+        </div>
+        <div class="mb-6 hidden" id="confirm-password-section">
+          <label
+            class="block text-gray-700 text-sm font-semibold mb-2"
+            for="confirm-password"
+            >Confirm New Password</label
+          >
+          <div class="relative">
+            <input
+              class="w-full text-gray-700 leading-tight border border-gray-300 rounded-lg py-3 px-4 shadow appearance-none focus:outline-none focus:ring-2 focus:ring-blue-400 focus:shadow-outline transition duration-200 h-12 icon-padding"
+              id="confirm-password"
+              name="confirmPassword"
+              type="password"
+              placeholder="Confirm your new password"
+              required
+            />
+            <i
+              class="fas fa-lock absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-500"
+            ></i>
+          </div>
+        </div>
+        <div class="flex items-center justify-between">
+          <button
+            class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:shadow-outline transition duration-200"
+            type="submit"
+            id="send-code-button"
+          >
+            Send Code
+          </button>
+          <button
+            class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg focus:outline-none focus:shadow-outline transition duration-200 hidden"
+            type="submit"
+            id="reset-password-button"
+          >
+            Reset Password
+          </button>
+        </div>
+      </form>
+      <p class="mt-4 text-center text-gray-600">
+        Remembered your password?
         <a
           href="login.html"
-          class="bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 hover:from-purple-500 hover:to-red-500 text-white font-bold py-3 px-6 rounded-full shadow-lg transform transition-transform hover:scale-105 hover:shadow-2xl w-40"
+          class="text-blue-500 hover:text-blue-700 font-semibold"
+          >Log In</a
         >
-          <i class="fas fa-sign-in-alt"></i> Login
-        </a>
-        <form id="form1" class="searchbox">
-          <input
-            type="text"
-            id="searchInput"
-            class="border border-gray-300 rounded-full py-2.5 px-5 bg-white bg-opacity-75 placeholder-gray-500 focus:outline-none focus:ring-4 focus:ring-blue-500 shadow-md transition-transform transform hover:scale-105 focus:scale-110"
-            placeholder="Search..."
-          />
-          <button
-            type="submit"
-            class="bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold py-2 px-4 rounded-full shadow-md hover:bg-gradient-to-r hover:from-purple-500 hover:to-pink-500 focus:outline-none focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 transform transition-transform hover:scale-105"
-          >
-            <i class="fas fa-search"></i>
-          </button>
-        </form>
-      </section>
-    </header>
-    <section class="content">
-      <main>
-        <div id="sample">
-          <img class="img" src="images/logo.png" alt="FWU Logo" />
-
-          <a href="index.html">Home</a>
-          <select
-            id="about-us-options"
-            class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
-            onchange="navigate(this.value)"
-            style="
-              background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\' viewBox=\'0 0 24 24\' width=\'24\' height=\'24\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E');
-              background-repeat: no-repeat;
-              background-position: right 0.75rem center;
-              background-size: 1.5rem;
-            "
-          >
-            <option value="" disabled selected hidden>About us</option>
-            <option value="mission.html">Our Mission</option>
-            <option value="vision.html">Our Vision</option>
-            <option value="dean-message.html">Message From Dean</option>
-            <option value="history.html">Our Development History</option>
-            <option value="strategies.html">
-              Our Strategies, Area, and Priorities
-            </option>
-          </select>
-
-          <select
-            d="iacademic-options"
-            class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
-            onchange="navigate(this.value)"
-            style="
-              background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\' viewBox=\'0 0 24 24\' width=\'24\' height=\'24\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E');
-              background-repeat: no-repeat;
-              background-position: right 0.75rem center;
-              background-size: 1.5rem;
-            "
-          >
-            <option value="" disabled selected hidden>Academics</option>
-            <option value="campus.html">Campus</option>
-            <option value="program.html">Program</option>
-            <option value="syllabus.html">Syllabus</option>
-            <option value="journal.html">Journal</option>
-          </select>
-
-          <select
-            id="announcement-options"
-            class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
-            onchange="navigate(this.value)"
-            style="
-              background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\' viewBox=\'0 0 24 24\' width=\'24\' height=\'24\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E');
-              background-repeat: no-repeat;
-              background-position: right 0.75rem center;
-              background-size: 1.5rem;
-            "
-          >
-            <option value="" disabled selected hidden>Announcement</option>
-            <option value="notice.html">Notice</option>
-            <option value="holidays.html">Holidays</option>
-            <option value="news.html">News</option>
-            <option value="events.html">Events</option>
-          </select>
-
-          <select
-            id="people-options"
-            class="block appearance-none w-full bg-gray-800 border border-gray-700 text-white py-2 px-4 pr-10 rounded leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transform hover:scale-105 duration-200 shadow-md"
-            onchange="navigate(this.value)"
-            style="
-              background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'%23ffffff\' viewBox=\'0 0 24 24\' width=\'24\' height=\'24\'%3E%3Cpath d=\'M7 10l5 5 5-5z\'/%3E%3C/svg%3E');
-              background-repeat: no-repeat;
-              background-position: right 0.75rem center;
-              background-size: 1.5rem;
-            "
-          >
-            <option value="" disabled selected hidden>People</option>
-            <option value="authorities.html">Authorities</option>
-            <option value="teaching-staff.html">Teaching Staff</option>
-            <option value="staff.html">Non Teaching Staff</option>
-          </select>
-
-          <a href="gallery.html">Gallery</a>
-          <a href="contacts.html">Contact Us</a>
-        </div>
-      </main>
-    </section>
-
-    <footer>
-      <div class="quick-links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="https://moe.gov.np/">Ministry of Education</a></li>
-          <li>
-            <a href="https://www.ugcnepal.edu.np/"
-              >University Grants Commission</a
-            >
-          </li>
-        </ul>
-      </div>
-      <div class="contact-info">
-        <h4>Get in Touch</h4>
-        <p><i class="fas fa-phone"></i> Phone: 099520296</p>
-        <p>
-          <i class="fas fa-envelope"></i> Email:
-          <a href="mailto:dean.engineering@fwu.edu.np"
-            >dean.engineering@fwu.edu.np</a
-          >
-        </p>
-        <p>Address: Bheemdatta Municipality-18, Mahendranagar, Kanchanpur</p>
-      </div>
-      <div class="info-officer">
-        <h4>Dean office</h4>
-        <p>Prof. Kishan Dutta Bhatta</p>
-        <p><i class="fas fa-phone"></i> Phone: 099520296</p>
-        <p>
-          <i class="fas fa-envelope"></i> Email:
-          <a href="mailto:dean.engineering@fwu.edu.np"
-            >dean.engineering@fwu.edu.np</a
-          >
-        </p>
-      </div>
-    </footer>
-
-    <section id="below">
-      <p>&copy; 2025 Far Western University All rights Reserved</p>
-    </section>
+      </p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
     <script>
-      function navigate(value) {
-        if (value) {
-          window.location.href = value;
-        }
-      }
+      const emailInput = document.getElementById("email");
+      const codeSection = document.getElementById("code-section");
+      const newPasswordSection = document.getElementById(
+        "new-password-section"
+      );
+      const confirmPasswordSection = document.getElementById(
+        "confirm-password-section"
+      );
+      const sendCodeButton = document.getElementById("send-code-button");
+      const resetPasswordButton = document.getElementById(
+        "reset-password-button"
+      );
+
+      document
+        .getElementById("forgot-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          if (sendCodeButton.classList.contains("hidden")) {
+            // Resetting password
+            const newPassword = document.getElementById("new-password").value;
+            const confirmPassword =
+              document.getElementById("confirm-password").value;
+            if (newPassword !== confirmPassword) {
+              alert("Passwords do not match.");
+            } else {
+              const token = document.getElementById("code").value;
+              fetch(`/reset-password/${token}`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ newPassword }),
+              })
+                .then((response) => response.json())
+                .then((data) => {
+                  if (data.error) {
+                    alert(data.error);
+                  } else {
+                    alert(data.message);
+                  }
+                });
+            }
+          } else {
+            // Sending code
+            const email = emailInput.value;
+            fetch("/forgot-password", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email }),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.error) {
+                  alert(data.error);
+                } else {
+                  alert(data.message);
+                  codeSection.classList.remove("hidden");
+                  newPasswordSection.classList.remove("hidden");
+                  confirmPasswordSection.classList.remove("hidden");
+                  sendCodeButton.classList.add("hidden");
+                  resetPasswordButton.classList.remove("hidden");
+                }
+              });
+          }
+        });
+
+      // Info icon events
+      const infoIconEmail = document.getElementById("info-icon-email");
+      const infoIconNewPassword = document.getElementById(
+        "info-icon-new-password"
+      );
+      const infoIconConfirmPassword = document.getElementById(
+        "info-icon-confirm-password"
+      );
+
+      infoIconEmail.addEventListener("click", function () {
+        alert("Enter your registered email address to receive a code.");
+      });
+
+      infoIconNewPassword.addEventListener("click", function () {
+        alert("Your new password must be at least 8 characters long.");
+      });
+
+      infoIconConfirmPassword.addEventListener("click", function () {
+        alert("Confirm your new password by entering it again.");
+      });
     </script>
-    <script src="index.js"></script>
   </body>
 </html>
